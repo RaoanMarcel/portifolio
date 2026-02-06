@@ -230,10 +230,10 @@ function App() {
                
                <div className="space-y-3 mb-8">
                  <div className="flex items-center gap-3 text-sm text-slate-700">
-                   <ShieldCheck size={16} className="text-emerald-500" /> Precisão de 98% no Dataset de Teste
+                   <ShieldCheck size={16} className="text-emerald-500" /> Precisão de 94% no Dataset de Teste
                  </div>
                  <div className="flex items-center gap-3 text-sm text-slate-700">
-                   <Cloud size={16} className="text-emerald-500" /> Deploy via Docker Container
+                   <Cloud size={16} className="text-emerald-500" /> Deploy em construção
                  </div>
                </div>
 
@@ -241,6 +241,8 @@ function App() {
                  <span className="text-[10px] bg-slate-50 px-2 py-1 rounded border border-slate-200 text-slate-600 font-mono">Python</span>
                  <span className="text-[10px] bg-slate-50 px-2 py-1 rounded border border-slate-200 text-slate-600 font-mono">Keras</span>
                  <span className="text-[10px] bg-slate-50 px-2 py-1 rounded border border-slate-200 text-slate-600 font-mono">OpenCV</span>
+                 <span className="text-[10px] bg-slate-50 px-2 py-1 rounded border border-slate-200 text-slate-600 font-mono">TensorFlow</span>
+                 <span className="text-[10px] bg-slate-50 px-2 py-1 rounded border border-slate-200 text-slate-600 font-mono">Flutter</span>
                </div>
             </BentoCard>
 
@@ -248,7 +250,7 @@ function App() {
             <div className="flex flex-col gap-4">
               <VSCodeWindow 
                 fileName="predict_disease.py"
-                output="Prediction: 'Rust' (Confidence: 0.98)"
+                output="Prediction: 'Rust' (Confidence: 0.94)"
                 code={[
                   '<span class="text-purple-400">import</span> tensorflow <span class="text-purple-400">as</span> tf',
                   '<span class="text-purple-400">import</span> cv2',
@@ -269,10 +271,10 @@ function App() {
                    <div className="bg-emerald-50 p-2 rounded-lg text-emerald-600"><BarChart3 size={20} /></div>
                    <div>
                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Imagens Processadas</p>
-                     <p className="font-bold text-slate-800 text-lg">12,450+</p>
+                     <p className="font-bold text-slate-800 text-lg">1,320 +</p>
                    </div>
                  </div>
-                 <div className="text-emerald-700 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">+24% este mês</div>
+                 <div className="text-emerald-700 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">+14% este mês</div>
               </div>
             </div>
 
@@ -304,7 +306,7 @@ function App() {
                     </div>
                     <div className="bg-white/60 p-3 rounded-lg border border-indigo-100">
                       <p className="text-xs text-indigo-400 font-bold uppercase mb-1">Infraestrutura</p>
-                      <p className="text-sm font-semibold text-slate-700">Vercel & AWS S3</p>
+                      <p className="text-sm font-semibold text-slate-700">Render & Netlify</p>
                     </div>
                  </div>
 
@@ -317,41 +319,17 @@ function App() {
                    </a>
                  </div>
                </div>
-
-               {/* Imagem Técnica (Dashboard Abstrato) */}
+              {/* Imagem Técnica (Dashboard Real) */}
                <div className="w-full md:w-5/12 aspect-video bg-slate-900 rounded-lg overflow-hidden relative border border-slate-800 shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
-                  {/* Simulação de Dashboard Dark Mode */}
-                 <div className="absolute inset-0 bg-[#0f172a] flex flex-col p-4 opacity-90">
-                    <div className="flex gap-2 mb-4 border-b border-slate-800 pb-2">
-                      <div className="h-2 w-20 bg-slate-700 rounded-full"></div>
-                    </div>
-                    <div className="flex gap-4 mb-4">
-                      <div className="flex-1 bg-slate-800/50 rounded p-3 border border-slate-700">
-                        <div className="h-1.5 w-8 bg-indigo-500 rounded mb-2"></div>
-                        <div className="h-4 w-12 bg-slate-600 rounded opacity-50"></div>
-                      </div>
-                      <div className="flex-1 bg-slate-800/50 rounded p-3 border border-slate-700">
-                          <div className="h-1.5 w-8 bg-emerald-500 rounded mb-2"></div>
-                          <div className="h-4 w-12 bg-slate-600 rounded opacity-50"></div>
-                      </div>
-                    </div>
-                    <div className="mt-auto bg-slate-800/30 flex-1 rounded border border-slate-700/50 p-2 space-y-2">
-                        <div className="h-1.5 w-full bg-slate-700/50 rounded"></div>
-                        <div className="h-1.5 w-3/4 bg-slate-700/50 rounded"></div>
-                        <div className="h-1.5 w-5/6 bg-slate-700/50 rounded"></div>
-                    </div>
-                 </div>
-                 {/* Overlay Text */}
-                 <div className="absolute inset-0 flex items-center justify-center">
-                    <span className="bg-black/60 backdrop-blur-md text-white px-4 py-1.5 rounded-full text-xs font-mono border border-white/10 shadow-xl">
-                      Admin Dashboard View
-                    </span>
-                 </div>
-               </div>
-            </div>
+                  <img 
+                    src="/ecommerce.png" 
+                    alt="HardTrap Dashboard Interface" 
+                    className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+                  />
+                </div>
+              </div>
           </BentoCard>
         </section>
-
         {/* 4. SCRAPING & AUTOMAÇÃO (THEME: SLATE/NEUTRAL) */}
         <section>
           <SectionTitle icon={Search} title="Engenharia de Dados & ETL" />
