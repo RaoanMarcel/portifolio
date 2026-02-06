@@ -18,13 +18,13 @@ function App() {
         {/* 1. HERO SECTION (Ocupa 2 colunas) */}
         <BentoCard className="md:col-span-2 md:row-span-2 flex flex-col justify-center items-start space-y-4">
           <div className="inline-block px-3 py-1 bg-emerald-100 text-emerald-800 text-xs font-bold rounded-full uppercase tracking-wider">
-            Desenvolvedor Full Stack & Dados
+            Engenharia de Software & Data Science
           </div>
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-800">
-            Transformando dados em <span className="text-emerald-600">soluções reais</span>.
+            Arquitetura de Software orientada a <span className="text-emerald-600">Inteligência de Dados</span>.
           </h1>
           <p className="text-slate-600 text-lg max-w-lg">
-            Especialista em arquiteturas complexas. Atualmente desenvolvendo IA para o setor Agro e sistemas de E-commerce escaláveis.
+            Engenheiro de Software, com experiência em desenvolvimento de sistemas e análise de dados. Atualmente em pós-graduação com foco em Inteligência Artificial e Big Data, explorando aplicações inovadoras em diferentes setores. Tenho interesse em unir tecnologia e ciência de dados para criar soluções escaláveis, inteligentes e orientadas a resultados.
           </p>
           <div className="flex gap-3 pt-2">
             <button className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition">
@@ -48,10 +48,9 @@ function App() {
               </div>
               <span className="text-xs font-mono text-emerald-400 border border-emerald-500/30 px-2 py-1 rounded">EM DESENVOLVIMENTO</span>
             </div>
-            <h3 className="text-xl font-bold mb-2">AgroScan AI</h3>
+            <h3 className="text-xl font-bold mb-2">AgroScan AI: Monitoramento Inteligente</h3>
             <p className="text-slate-400 text-sm">
-              Reconhecimento de doenças em folhas e mapeamento geoespacial interativo para agricultura de precisão.
-            </p>
+              Sistema de visão computacional para detecção precoce de patógenos em lavouras. Utiliza redes neurais para mapeamento geoespacial e análise preditiva de safras.            </p>
           </div>
           
           <div className="relative z-10 mt-6 bg-slate-800/50 p-3 rounded-lg border border-slate-700">
@@ -110,15 +109,22 @@ function App() {
         <BentoCard className="md:col-span-3 bg-slate-100 border-none">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
              <div>
-               <h3 className="font-bold text-slate-800">Formação Acadêmica & Cursos</h3>
-               <p className="text-sm text-slate-600">Graduação em XXXXX • Especialização em Data Science</p>
+               <h3 className="font-bold text-slate-800">Formação Acadêmica</h3>
+               <p className="text-sm text-slate-800">Pós-Graduação em IA e Big Data (AgroTech) pela pontifícia universidade católica (PUCPR)</p>
+               <p className="text-xs text-slate-600">Especialização voltada para o uso de tecnologias avançadas em análise de dados e inteligência artificial, com foco em soluções escaláveis e inovação digital</p>
              </div>
              <button className="text-sm border border-slate-300 px-4 py-2 rounded-lg bg-white hover:bg-slate-50 font-medium">
                Baixar Currículo PDF
              </button>
           </div>
+          <hr className="my-6 border-slate-300" />
+                    <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+             <div>
+               <p className="text-sm text-slate-800">Bacharelado em Engenharia de Software pela Universidade Grande Vale (UGV)</p>
+               <p className="text-xs text-slate-600">Formação voltada para o desenvolvimento de sistemas, arquitetura de software e análise de dados, com ênfase em soluções escaláveis, qualidade de código e inovação tecnológica.</p>
+             </div>
+          </div>
         </BentoCard>
-
       </div>
     </div>
   );
