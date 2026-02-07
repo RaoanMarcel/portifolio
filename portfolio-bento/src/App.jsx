@@ -5,8 +5,7 @@ import {
   Layout, Box, Code2, GraduationCap, ChevronLeft, ChevronRight, 
   Search, BarChart3, Cloud, ShieldCheck, Play 
 } from 'lucide-react';
-
-// --- COMPONENTES AUXILIARES ---
+import curriculoPdf from './assets/curriculo.pdf';
 
 const BentoCard = ({ children, className = "", onClick, noPadding = false }) => (
   <div 
@@ -23,10 +22,8 @@ const SectionTitle = ({ icon: Icon, title, colorClass = "text-slate-500" }) => (
   </div>
 );
 
-// Componente Visual do VS Code
 const VSCodeWindow = ({ code, fileName = "model_inference.py", output }) => (
   <div className="w-full rounded-lg overflow-hidden border border-slate-800 bg-[#1e1e1e] shadow-2xl font-mono text-xs group">
-    {/* Header do Editor */}
     <div className="bg-[#2d2d2d] px-3 py-2 flex items-center gap-2 border-b border-black/20">
       <div className="flex gap-1.5 opacity-60 group-hover:opacity-100 transition-opacity">
         <div className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]"></div>
@@ -37,7 +34,6 @@ const VSCodeWindow = ({ code, fileName = "model_inference.py", output }) => (
         <Code2 size={10} /> {fileName}
       </span>
     </div>
-    {/* Corpo do Código */}
     <div className="p-4 text-slate-300 overflow-x-auto leading-relaxed">
       {code.map((line, i) => (
         <div key={i} className="flex hover:bg-white/5 transition-colors">
@@ -46,7 +42,6 @@ const VSCodeWindow = ({ code, fileName = "model_inference.py", output }) => (
         </div>
       ))}
     </div>
-    {/* Terminal Output */}
     {output && (
       <div className="border-t border-slate-700 bg-[#1e1e1e] p-3">
         <div className="flex items-center gap-2 text-[10px] text-slate-500 mb-1 uppercase tracking-wider">
@@ -82,13 +77,54 @@ function App() {
   };
 
   return (
-
-    <div className="min-h-screen bg-[#f8fafc] text-slate-900 p-6 md:p-12 font-sans selection:bg-indigo-100 relative">
+    <div className="min-h-screen bg-[#f8fafc] text-slate-900 p-6 md:p-12 font-sans selection:bg-indigo-100 relative overflow-hidden">
       
-      {/* Background Texture Grid */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none -z-0"></div>
+      <style>{`
+        @keyframes float-1 {
+          0%, 100% { transform: translate(0, 0) rotate(0deg); }
+          33% { transform: translate(100px, -50px) rotate(10deg); }
+          66% { transform: translate(-50px, 50px) rotate(-5deg); }
+        }
+        @keyframes float-2 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(-80px, -80px) scale(1.1); }
+        }
+        @keyframes float-3 {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          50% { transform: translate(50px, 80px) scale(1.2); }
+        }
+        .aurora-blob {
+          position: absolute;
+          filter: blur(80px);
+          opacity: 0.6;
+          mix-blend-mode: multiply;
+          border-radius: 50%;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+        }
+      `}</style>
 
-      {/* --- MODAL DETALHES TÉCNICOS --- */}
+      <div className="fixed inset-0 -z-0 bg-slate-50 overflow-hidden">
+          
+          <div 
+            className="aurora-blob bg-indigo-300 w-[60vw] h-[60vw] top-[-10%] left-[-10%]"
+            style={{ animation: 'float-1 15s infinite' }}
+          ></div>
+
+          <div 
+            className="aurora-blob bg-emerald-300 w-[50vw] h-[50vw] top-[20%] right-[-10%]"
+            style={{ animation: 'float-2 18s infinite' }}
+          ></div>
+
+          <div 
+            className="aurora-blob bg-purple-300 w-[50vw] h-[50vw] bottom-[-10%] left-[20%]"
+            style={{ animation: 'float-3 20s infinite' }}
+          ></div>
+
+          <div className="absolute inset-0 bg-white/40 backdrop-blur-[10px]"></div>
+          
+      </div>
+
       {showDetailsModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in" onClick={() => setShowDetailsModal(false)}>
           <div className="bg-white w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200" onClick={(e) => e.stopPropagation()}>
@@ -99,25 +135,25 @@ function App() {
               <button onClick={() => setShowDetailsModal(false)} className="p-1 hover:bg-slate-200 rounded-full transition"><X size={20} /></button>
             </div>
             <div className="p-8 space-y-6">
-               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div className="space-y-2">
-                   <h3 className="font-bold text-indigo-900 border-b border-indigo-100 pb-2 mb-2">Backend & Ingestion</h3>
-                   <ul className="text-sm text-slate-600 space-y-2">
-                     <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Prisma ORM:</strong> Modelagem relacional complexa.</li>
-                     <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Webhooks:</strong> Eventos assíncronos do Stripe.</li>
-                     <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Supabase:</strong> DB Escalável.</li>
-                   </ul>
-                 </div>
-                 <div className="space-y-2">
-                   <h3 className="font-bold text-indigo-900 border-b border-indigo-100 pb-2 mb-2">Analytics</h3>
-                   <ul className="text-sm text-slate-600 space-y-2">
-                     <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-emerald-500"/> <strong>KPIs em Tempo Real:</strong> Dashboard admin.</li>
-                     <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-emerald-500"/> <strong>ETL de Vendas:</strong> Raw data &gt; Insights.</li>
-                   </ul>
-                 </div>
-               </div>
-               
-               <div className="bg-[#1e1e1e] rounded-lg p-5 mt-4 shadow-inner">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-indigo-900 border-b border-indigo-100 pb-2 mb-2">Backend & Ingestion</h3>
+                    <ul className="text-sm text-slate-600 space-y-2">
+                      <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Prisma ORM:</strong> Modelagem relacional complexa.</li>
+                      <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Webhooks:</strong> Eventos assíncronos do Stripe.</li>
+                      <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-indigo-500"/> <strong>Supabase:</strong> DB Escalável.</li>
+                    </ul>
+                  </div>
+                  <div className="space-y-2">
+                    <h3 className="font-bold text-indigo-900 border-b border-indigo-100 pb-2 mb-2">Analytics</h3>
+                    <ul className="text-sm text-slate-600 space-y-2">
+                      <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-emerald-500"/> <strong>KPIs em Tempo Real:</strong> Dashboard admin.</li>
+                      <li className="flex items-start gap-2"><div className="w-1.5 h-1.5 mt-1.5 rounded-full bg-emerald-500"/> <strong>ETL de Vendas:</strong> Raw data &gt; Insights.</li>
+                    </ul>
+                  </div>
+                </div>
+                
+                <div className="bg-[#1e1e1e] rounded-lg p-5 mt-4 shadow-inner">
                   <p className="font-mono text-xs text-slate-500 mb-2 border-b border-slate-700 pb-2 flex justify-between">
                     <span>// Pipeline de processamento de pedido</span>
                     <span className="text-indigo-400">server-side</span>
@@ -129,65 +165,58 @@ function App() {
                     &nbsp;&nbsp;<span className="text-slate-500">/* Dispara job de analytics */</span><br/>
                     {'}'}
                   </p>
-               </div>
+                </div>
             </div>
           </div>
         </div>
       )}
       
-      {/* --- CONTEÚDO PRINCIPAL --- */}
       <div className="relative z-10 max-w-6xl mx-auto space-y-10">
         
-        {/* 1. HEADER & GITHUB */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
           
-          {/* Intro Card (8 cols) */}
           <BentoCard className="md:col-span-8 flex flex-col justify-center space-y-6 relative overflow-hidden bg-white border-slate-200">
-             {/* Background decoration - Adjusted to Indigo/Blue */}
-             <div className="absolute top-0 right-0 p-24 bg-indigo-50 rounded-full blur-3xl -z-10 translate-x-10 -translate-y-10 opacity-70"></div>
+              <div className="absolute top-0 right-0 p-32 bg-indigo-50/50 rounded-full blur-3xl -z-10 translate-x-10 -translate-y-10"></div>
 
-             <div className="space-y-4">
-               <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-full uppercase tracking-wider w-fit shadow-md shadow-slate-200">
-                 <Terminal size={10} className="text-indigo-400" /> Data Engineer & AI
-               </div>
-               
-               <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
-                 Transformando dados brutos em <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-700">inteligência</span>.
-               </h1>
-               
-               <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
-                 Engenheiro focado em <strong>Arquitetura de Dados</strong>, Pipelines de ETL e modelos de IA. Especialista em criar backends robustos que escalam.
-               </p>
-             </div>
+              <div className="space-y-4">
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-900 text-white text-[10px] font-bold rounded-full uppercase tracking-wider w-fit shadow-md shadow-slate-200">
+                  <Terminal size={10} className="text-indigo-400" /> Data Engineer & AI
+                </div>
+                
+                <h1 className="text-3xl md:text-5xl font-bold tracking-tight text-slate-900 leading-tight">
+                  Transformando dados brutos em <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-emerald-700">inteligência</span>.
+                </h1>
+                
+                <p className="text-slate-600 text-lg max-w-2xl leading-relaxed">
+                  Engenheiro focado em <strong>Arquitetura de Dados</strong>, Pipelines de ETL e modelos de IA. Especialista em criar backends robustos que escalam.
+                </p>
+              </div>
 
-             <div className="pt-2">
-               <div className="flex flex-wrap gap-2 mb-6">
-                 {techStack.map((tech) => (
-                   <span key={tech.name} className={`px-3 py-1 text-xs font-bold rounded-md border ${getTagStyle(tech.type)}`}>
-                     {tech.name}
-                   </span>
-                 ))}
-               </div>
+              <div className="pt-2">
+                <div className="flex flex-wrap gap-2 mb-6">
+                  {techStack.map((tech) => (
+                    <span key={tech.name} className={`px-3 py-1 text-xs font-bold rounded-md border ${getTagStyle(tech.type)}`}>
+                      {tech.name}
+                    </span>
+                  ))}
+                </div>
 
-               <div className="flex gap-3">
+                <div className="flex gap-3">
                   <a href="mailto:seuemail@exemplo.com" className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm">
                     <Mail size={16} /> Contato
                   </a>
                   <a href="#" className="flex items-center gap-2 bg-white border border-slate-200 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-300 transition text-sm text-slate-700">
                     <Linkedin size={16} /> LinkedIn
                   </a>
-               </div>
-             </div>
+                </div>
+              </div>
           </BentoCard>
 
-         {/* GitHub Card - EMERALD MODE (4 cols) */}
           <a href="https://github.com/RaoanMarcel" target="_blank" rel="noopener noreferrer" className="md:col-span-4 h-full group">
             <BentoCard noPadding={true} className="!bg-emerald-500 border-emerald-400 hover:border-emerald-300 flex flex-col items-center justify-center text-center h-full min-h-[300px] relative overflow-hidden transition-colors duration-500 shadow-xl shadow-emerald-500/20">
-               {/* Grid Background Subtle (Mais claro para fundo colorido) */}
                <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
                
                <div className="relative z-10 flex flex-col items-center gap-5">
-                 {/* Icon Container */}
                  <div className="p-4 bg-white/20 rounded-full text-white mb-2 group-hover:scale-110 group-hover:bg-white group-hover:text-emerald-600 transition-all duration-300 backdrop-blur-sm">
                     <Github size={42} />
                  </div>
@@ -197,7 +226,6 @@ function App() {
                    <span className="text-emerald-50 text-sm opacity-90">@RaoanMarcel</span>
                  </div>
 
-                 {/* Status Pill */}
                  <div className="flex items-center gap-4 text-xs font-mono text-white mt-2 bg-black/10 px-4 py-2 rounded-full border border-white/20 backdrop-blur-md">
                    <div className="flex items-center gap-1.5">
                      <div className="w-2 h-2 bg-white rounded-full animate-pulse shadow-[0_0_8px_rgba(255,255,255,0.8)]"></div>
@@ -213,12 +241,10 @@ function App() {
           </a>
         </div>
 
-        {/* 2. PROJETO DESTAQUE: AGRO SCAN (THEME: EMERALD/NATURE) */}
         <section>
           <SectionTitle icon={Cpu} title="Inteligência Artificial & Computer Vision" colorClass="text-emerald-700" />
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             
-            {/* Card Descritivo */}
             <BentoCard className="flex flex-col justify-center bg-white border-emerald-100 hover:border-emerald-300">
                <div className="mb-4 bg-emerald-50 w-fit p-3 rounded-xl text-emerald-600">
                  <Sprout size={28} />
@@ -246,7 +272,6 @@ function App() {
                </div>
             </BentoCard>
 
-            {/* Card Visual (VS Code) */}
             <div className="flex flex-col gap-4">
               <VSCodeWindow 
                 fileName="predict_disease.py"
@@ -265,23 +290,21 @@ function App() {
                   '&nbsp;&nbsp;<span class="text-purple-400">return</span> <span class="text-yellow-200">format_output</span>(prediction)'
                 ]}
               />
-              {/* Cardzinho extra de estatística */}
               <div className="bg-white rounded-xl p-4 border border-emerald-100 shadow-sm flex items-center justify-between">
-                 <div className="flex items-center gap-3">
-                   <div className="bg-emerald-50 p-2 rounded-lg text-emerald-600"><BarChart3 size={20} /></div>
-                   <div>
-                     <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Imagens Processadas</p>
-                     <p className="font-bold text-slate-800 text-lg">1,320 +</p>
-                   </div>
-                 </div>
-                 <div className="text-emerald-700 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">+14% este mês</div>
+                  <div className="flex items-center gap-3">
+                    <div className="bg-emerald-50 p-2 rounded-lg text-emerald-600"><BarChart3 size={20} /></div>
+                    <div>
+                      <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Imagens Processadas</p>
+                      <p className="font-bold text-slate-800 text-lg">1,320 +</p>
+                    </div>
+                  </div>
+                  <div className="text-emerald-700 text-xs font-bold bg-emerald-50 px-2 py-1 rounded-full border border-emerald-100">+14% este mês</div>
               </div>
             </div>
 
           </div>
         </section>
 
-        {/* 3. PROJETO SECUNDÁRIO: HARDTRAP (THEME: INDIGO/BACKEND) */}
         <section>
           <SectionTitle icon={Server} title="Arquitetura de Sistemas & Dados" colorClass="text-indigo-600" />
           
@@ -319,7 +342,6 @@ function App() {
                    </a>
                  </div>
                </div>
-              {/* Imagem Técnica (Dashboard Real) */}
                <div className="w-full md:w-5/12 aspect-video bg-slate-900 rounded-lg overflow-hidden relative border border-slate-800 shadow-2xl transform group-hover:scale-[1.02] transition-transform duration-500">
                   <img 
                     src="/ecommerce.png" 
@@ -327,15 +349,13 @@ function App() {
                     className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
                   />
                 </div>
-              </div>
+             </div>
           </BentoCard>
         </section>
-        {/* 4. SCRAPING & AUTOMAÇÃO (THEME: SLATE/NEUTRAL) */}
         <section>
           <SectionTitle icon={Search} title="Engenharia de Dados & ETL" />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
              
-             {/* Card Scraper */}
              <BentoCard className="md:col-span-2 flex flex-col justify-between bg-white hover:border-blue-200 transition-colors">
                 <div>
                    <div className="flex justify-between items-start mb-4">
@@ -353,7 +373,6 @@ function App() {
                 </div>
              </BentoCard>
 
-             {/* Outros experimentos */}
              <BentoCard className="flex flex-col justify-center gap-4 bg-slate-50 border-dashed border-slate-300">
                 <div className="flex items-center gap-3 text-slate-600 opacity-80 hover:opacity-100 transition">
                    <Layout size={18} />
@@ -374,53 +393,49 @@ function App() {
           </div>
         </section>
 
-        {/* 6. FORMAÇÃO (THEME: CLEAN/OFFICIAL) */} 
         <BentoCard className="bg-white border-slate-200 shadow-sm relative overflow-hidden"> 
-           {/* Decorative corner */}
            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-slate-50 to-transparent rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
 
            <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 relative z-10"> 
-              
-              <div className="flex-1 space-y-8"> 
-                {/* Pós Graduação */}
-                <div className="relative pl-8 border-l-2 border-emerald-200"> 
-                  <div className="absolute -left-[9px] top-0 bg-white p-1 rounded-full border border-emerald-200">
-                    <Sprout size={14} className="text-emerald-600" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-lg"> 
-                    Pós-Graduação em IA e Big Data (AgroTech) 
-                  </h3> 
-                  <p className="text-slate-700 text-sm font-medium mt-1">Pontifícia Universidade Católica (PUCPR) • Em andamento</p> 
-                  <p className="text-slate-500 text-xs mt-2 max-w-xl leading-relaxed"> 
-                    Especialização em modelagem preditiva, sensoriamento remoto e soluções escaláveis para o campo. 
-                  </p> 
-                </div> 
-                
-                {/* Graduação */}
-                <div className="relative pl-8 border-l-2 border-slate-200"> 
-                  <div className="absolute -left-[9px] top-0 bg-white p-1 rounded-full border border-slate-200">
-                      <Terminal size={14} className="text-slate-600" />
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-lg"> 
-                    Bacharelado em Engenharia de Software 
-                  </h3> 
-                  <p className="text-slate-700 text-sm font-medium mt-1">Universidade Grande Vale (UGV) • Concluído</p> 
-                  <p className="text-slate-500 text-xs mt-2 max-w-xl leading-relaxed"> 
-                    Foco em arquitetura de software, qualidade de código e desenvolvimento full stack. 
-                  </p> 
-                </div> 
-              </div> 
+             
+             <div className="flex-1 space-y-8"> 
+               <div className="relative pl-8 border-l-2 border-emerald-200"> 
+                 <div className="absolute -left-[9px] top-0 bg-white p-1 rounded-full border border-emerald-200">
+                   <Sprout size={14} className="text-emerald-600" />
+                 </div>
+                 <h3 className="font-bold text-slate-900 text-lg"> 
+                   Pós-Graduação em IA e Big Data (AgroTech) 
+                 </h3> 
+                 <p className="text-slate-700 text-sm font-medium mt-1">Pontifícia Universidade Católica (PUCPR) • Em andamento</p> 
+                 <p className="text-slate-500 text-xs mt-2 max-w-xl leading-relaxed"> 
+                   Especialização em modelagem preditiva, sensoriamento remoto e soluções escaláveis para o campo. 
+                 </p> 
+               </div> 
+               
+               <div className="relative pl-8 border-l-2 border-slate-200"> 
+                 <div className="absolute -left-[9px] top-0 bg-white p-1 rounded-full border border-slate-200">
+                     <Terminal size={14} className="text-slate-600" />
+                 </div>
+                 <h3 className="font-bold text-slate-900 text-lg"> 
+                   Bacharelado em Engenharia de Software 
+                 </h3> 
+                 <p className="text-slate-700 text-sm font-medium mt-1">Universidade Grande Vale (UGV) • Concluído</p> 
+                 <p className="text-slate-500 text-xs mt-2 max-w-xl leading-relaxed"> 
+                   Foco em arquitetura de software, qualidade de código e desenvolvimento full stack. 
+                 </p>   
+               </div> 
+             </div> 
 
-              <div className="w-full md:w-auto flex justify-end"> 
-                <a  
-                  href="/curriculo.pdf"  
+             <div className="w-full md:w-auto flex justify-end"> 
+               <a   
+                  href={curriculoPdf}  
                   download="Curriculo_Eng_Software.pdf" 
                   className="flex items-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700 hover:border-emerald-500 hover:text-emerald-700 hover:shadow-lg hover:bg-emerald-50 transition-all group" 
-                > 
-                  <Download size={20} className="group-hover:scale-110 transition-transform" /> 
-                  Download CV 
-                </a> 
-              </div> 
+                >              
+                 <Download size={20} className="group-hover:scale-110 transition-transform" /> 
+                 Download CV 
+               </a> 
+             </div> 
 
            </div> 
         </BentoCard> 
