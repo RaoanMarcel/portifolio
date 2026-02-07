@@ -1,5 +1,5 @@
 import React from 'react';
-import { Cpu, Sprout, ShieldCheck, Cloud, BarChart3 } from 'lucide-react';
+import { Cpu, Sprout, ShieldCheck, Cloud, BarChart3, Github } from 'lucide-react';
 import SectionTitle from '../ui/SectionTitle';
 import BentoCard from '../ui/BentoCard';
 import VSCodeWindow from '../ui/VSCodeWindow';
@@ -25,6 +25,18 @@ const AISection = () => {
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-700">
                 <Cloud size={16} className="text-emerald-500" /> Deploy em construção
+              </div>
+
+              {/* Botão de Ver Repositório alinhado à esquerda */}
+              <div className="pt-2 flex justify-start">
+                <a 
+                  href="https://github.com/seu-usuario/seu-repositorio" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm hover:-translate-y-1"
+                >
+                  <Github size={18} /> Ver Repositório
+                </a>
               </div>
             </div>
 

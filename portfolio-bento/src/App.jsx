@@ -1,16 +1,15 @@
 import React, { useState } from 'react';
 
-// Seus imports...
 import BackgroundAurora from './layout/BackgroundAurora'; 
 import HardTrapModal from './components/modals/HardTrapModal';
 import AutomationModal from './components/modals/AutomationModal';
 import RoutesModal from './components/modals/RoutesModal'; 
-import ScraperModal from './components/modals/ScraperModal'; // <--- Import Novo
+import ScraperModal from './components/modals/ScraperModal';
 
-// Seções
 import HeroSection from './components/sections/HeroSection';
-import BackendSection from './components/sections/BackendSection'; // HardTrap
-import EngineeringGrid from './components/sections/EngineeringGrid'; // <--- O Grid Novo
+import AISection from './components/sections/AISection';
+import BackendSection from './components/sections/BackendSection';
+import EngineeringGrid from './components/sections/EngineeringGrid';
 import EducationSection from './components/sections/EducationSection';
 
 function App() {
@@ -24,7 +23,6 @@ function App() {
       
       <BackgroundAurora />
 
-      {/* --- MODAIS --- */}
       {showHardTrap && <HardTrapModal onClose={() => setShowHardTrap(false)} />}
       {showAutomation && <AutomationModal onClose={() => setShowAutomation(false)} />}
       {showRoutes && <RoutesModal onClose={() => setShowRoutes(false)} />}
@@ -34,10 +32,10 @@ function App() {
         
         <HeroSection />
 
-        {/* HardTrap (Principal) */}
+        <AISection />
+
         <BackendSection onOpenModal={() => setShowHardTrap(true)} />
 
-        {/* Grid com os 3 Projetos: Automação, Rotas e Scraper */}
         <EngineeringGrid 
           onOpenAutomation={() => setShowAutomation(true)} 
           onOpenRoutes={() => setShowRoutes(true)} 
