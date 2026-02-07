@@ -143,8 +143,8 @@ const RoutesModal = ({ onClose }) => {
 
             {/* --- Footer / CTA --- */}
             <div className="pt-2 flex justify-end">
-                <a href="#" className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm hover:-translate-y-1">
-                  <Github size={18} /> Ver Repositório (Em Breve)
+                <a href="https://github.com/RaoanMarcel/Calculo-de-rotas-python" className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm hover:-translate-y-1">
+                  <Github size={18} /> Ver Repositório
                 </a>
             </div>
         </div>
