@@ -1,6 +1,5 @@
 import React from 'react';
 import { Terminal, Mail, Linkedin, Github } from 'lucide-react';
-import BentoCard from '../ui/BentoCard';
 
 const HeroSection = () => {
   const techStack = [
@@ -23,7 +22,7 @@ const HeroSection = () => {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-      <BentoCard className="md:col-span-8 flex flex-col justify-center space-y-6 relative overflow-hidden bg-white border-slate-200">
+      <div className="md:col-span-8 flex flex-col justify-center space-y-6 relative overflow-hidden bg-white border border-slate-200 rounded-3xl p-6 md:p-8 shadow-sm">
           <div className="absolute top-0 right-0 p-32 bg-indigo-50/50 rounded-full blur-3xl -z-10 translate-x-10 -translate-y-10"></div>
 
           <div className="space-y-4">
@@ -50,18 +49,18 @@ const HeroSection = () => {
             </div>
 
             <div className="flex gap-3">
-              <a href="mailto:seuemail@exemplo.com" className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm">
+              <a href="mailto:contatoraoanmarcel@gmail.com" className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm">
                 <Mail size={16} /> Contato
               </a>
-              <a href="https://www.linkedin.com/in/raoan-marcel/" target="_blank" rel="noopener noreferrer  " className="flex items-center gap-2 bg-white border border-slate-200 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-300 transition text-sm text-slate-700">
+              <a href="https://www.linkedin.com/in/raoan-marcel/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 bg-white border border-slate-200 px-5 py-2.5 rounded-lg font-medium hover:bg-slate-50 hover:border-slate-300 transition text-sm text-slate-700">
                 <Linkedin size={16} /> LinkedIn
               </a>
             </div>
           </div>
-      </BentoCard>
+      </div>
 
-      <a href="https://github.com/RaoanMarcel" target="_blank" rel="noopener noreferrer" className="md:col-span-4 h-full group">
-        <BentoCard noPadding={true} className="!bg-emerald-500 border-emerald-400 hover:border-emerald-300 flex flex-col items-center justify-center text-center h-full min-h-[300px] relative overflow-hidden transition-colors duration-500 shadow-xl shadow-emerald-500/20">
+      <a href="https://github.com/RaoanMarcel" target="_blank" rel="noopener noreferrer" className="md:col-span-4 h-full group block">
+        <div className="bg-emerald-500 border border-emerald-400 hover:border-emerald-300 flex flex-col items-center justify-center text-center h-full min-h-[300px] relative overflow-hidden transition-colors duration-500 shadow-xl shadow-emerald-500/20 rounded-3xl p-6">
            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:20px_20px]"></div>
            
            <div className="relative z-10 flex flex-col items-center gap-5">
@@ -85,7 +84,7 @@ const HeroSection = () => {
                Ver repositórios
              </div>
            </div>
-        </BentoCard>
+        </div>
       </a>
     </div>
   );
