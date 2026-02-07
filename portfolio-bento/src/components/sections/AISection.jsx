@@ -30,7 +30,7 @@ const AISection = () => {
               {/* Botão de Ver Repositório alinhado à esquerda */}
               <div className="pt-2 flex justify-start">
                 <a 
-                  href="https://github.com/seu-usuario/seu-repositorio" 
+                  href="https://github.com/RaoanMarcel/AGData" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm hover:-translate-y-1"
