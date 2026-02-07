@@ -9,7 +9,6 @@ const RoutesModal = ({ onClose }) => {
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm animate-in fade-in" onClick={onClose}>
       <div className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-2xl shadow-2xl border border-slate-200 flex flex-col" onClick={(e) => e.stopPropagation()}>
         
-        {/* --- Header --- */}
         <div className="bg-white/80 backdrop-blur-md p-5 border-b border-slate-100 flex justify-between items-center sticky top-0 z-20">
           <h2 className="text-xl font-bold text-slate-800 flex items-center gap-3">
             <div className="p-2 bg-indigo-50 rounded-lg text-indigo-600">
@@ -21,17 +20,14 @@ const RoutesModal = ({ onClose }) => {
         </div>
 
         <div className="p-6 md:p-8 space-y-8">
-            {/* Descrição Principal */}
             <div className="flex flex-col md:flex-row gap-6 items-start">
                 <p className="text-slate-600 text-sm leading-relaxed flex-1">
                   Solução de <strong>Otimização Logística</strong> que resolve o problema do Caixeiro Viajante (TSP) integrando dados reais de malha viária. Diferente de roteirizadores simples, este sistema considera a viabilidade física das rotas usando APIs de geolocalização e algoritmos heurísticos.
                 </p>
             </div>
 
-            {/* --- Grid Tecnológico (4 Blocos) --- */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 
-                {/* Bloco 1: Backend */}
                 <div className="group p-5 rounded-xl border border-slate-200 hover:border-indigo-300 hover:shadow-md transition-all duration-300 bg-white">
                     <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-indigo-50 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
@@ -46,7 +42,6 @@ const RoutesModal = ({ onClose }) => {
                     </ul>
                 </div>
 
-                {/* Bloco 2: Integração API */}
                 <div className="group p-5 rounded-xl border border-slate-200 hover:border-emerald-300 hover:shadow-md transition-all duration-300 bg-white">
                     <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-emerald-50 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
@@ -61,7 +56,6 @@ const RoutesModal = ({ onClose }) => {
                     </ul>
                 </div>
 
-                {/* Bloco 3: Frontend GIS */}
                 <div className="group p-5 rounded-xl border border-slate-200 hover:border-blue-300 hover:shadow-md transition-all duration-300 bg-white">
                     <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-blue-50 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
@@ -76,7 +70,6 @@ const RoutesModal = ({ onClose }) => {
                     </ul>
                 </div>
 
-                {/* Bloco 4: Fluxo de Dados */}
                 <div className="group p-5 rounded-xl border border-slate-200 hover:border-purple-300 hover:shadow-md transition-all duration-300 bg-white">
                     <div className="flex items-center gap-3 mb-3">
                         <div className="p-2 rounded-lg bg-purple-50 text-purple-600 group-hover:bg-purple-600 group-hover:text-white transition-colors">
@@ -92,7 +85,6 @@ const RoutesModal = ({ onClose }) => {
                 </div>
             </div>
 
-            {/* --- SEÇÃO DE NEGÓCIO (Logística) --- */}
             <div className="border border-slate-200 rounded-xl overflow-hidden">
                 <div className="bg-slate-50 px-5 py-3 border-b border-slate-200 flex justify-between items-center">
                       <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">
@@ -141,7 +133,6 @@ const RoutesModal = ({ onClose }) => {
                 </div>
             </div>
 
-            {/* --- Footer / CTA --- */}
             <div className="pt-2 flex justify-end">
                 <a href="https://github.com/RaoanMarcel/Calculo-de-rotas-python" className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-xl font-bold hover:bg-slate-800 transition shadow-lg shadow-slate-200 text-sm hover:-translate-y-1">
                   <Github size={18} /> Ver Repositório

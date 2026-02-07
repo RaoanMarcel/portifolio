@@ -84,7 +84,6 @@ const AutomationModal = ({ onClose }) => {
                 </div>
             </div>
 
-            {/* --- APLICAÇÃO DE NEGÓCIO REAL --- */}
             <div className="border border-slate-200 rounded-xl overflow-hidden">
                 <div className="bg-slate-50 px-5 py-3 border-b border-slate-200 flex justify-between items-center">
                       <h4 className="font-bold text-slate-800 text-sm flex items-center gap-2">

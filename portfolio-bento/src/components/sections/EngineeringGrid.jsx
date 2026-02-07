@@ -5,7 +5,6 @@ const EngineeringGrid = ({ onOpenAutomation, onOpenRoutes, onOpenScraper }) => {
   return (
     <div className="w-full grid grid-cols-1 md:grid-cols-3 gap-6">
         
-        {/* --- CARD 1: AUTOMAÇÃO (RPA) --- */}
         <div 
           onClick={onOpenAutomation}
           className="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-emerald-300 hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col"
@@ -34,7 +33,6 @@ const EngineeringGrid = ({ onOpenAutomation, onOpenRoutes, onOpenScraper }) => {
           </div>
         </div>
 
-        {/* --- CARD 2: ROTAS (Logística) --- */}
         <div 
           onClick={onOpenRoutes}
           className="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-indigo-300 hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col"
@@ -63,7 +61,6 @@ const EngineeringGrid = ({ onOpenAutomation, onOpenRoutes, onOpenScraper }) => {
           </div>
         </div>
 
-        {/* --- CARD 3: PRICE TRACKER (Novo) --- */}
         <div 
           onClick={onOpenScraper}
           className="group bg-white p-6 rounded-2xl border border-slate-200 hover:border-orange-300 hover:shadow-xl transition-all duration-300 cursor-pointer relative overflow-hidden flex flex-col"

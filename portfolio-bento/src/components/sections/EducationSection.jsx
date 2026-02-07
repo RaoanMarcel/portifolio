@@ -1,15 +1,16 @@
 import React from 'react';
 import { Sprout, Terminal, Download } from 'lucide-react';
-import BentoCard from '../ui/BentoCard';
 
 const EducationSection = () => {
   return (
-    <BentoCard className="bg-white border-slate-200 shadow-sm relative overflow-hidden">
+    <div className="bg-white border border-slate-200 shadow-sm relative overflow-hidden rounded-3xl p-6 md:p-8">
+        
         <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl from-slate-50 to-transparent rounded-bl-full -mr-8 -mt-8 pointer-events-none"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 relative z-10">
 
           <div className="flex-1 space-y-8">
+            
             <div className="relative pl-8 border-l-2 border-emerald-200">
               <div className="absolute -left-[9px] top-0 bg-white p-1 rounded-full border border-emerald-200">
                 <Sprout size={14} className="text-emerald-600" />
@@ -40,8 +41,8 @@ const EducationSection = () => {
           <div className="w-full md:w-auto flex justify-end">
             <a
               href="/curriculo.pdf"
-              download="Curriculo de Raoan Marcel Jukowski.pdf"
-              className="flex items-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700 hover:border-emerald-500 hover:text-emerald-700 hover:shadow-lg hover:bg-emerald-50 transition-all group"
+              download="Curriculo-Raoan-Marcel.pdf"
+              className="flex items-center gap-2 bg-white border border-slate-200 px-6 py-3 rounded-xl font-bold text-slate-700 hover:border-emerald-500 hover:text-emerald-700 hover:shadow-lg hover:bg-emerald-50 transition-all group cursor-pointer"
             >
               <Download size={20} className="group-hover:scale-110 transition-transform" />
               Download CV
@@ -49,7 +50,7 @@ const EducationSection = () => {
           </div>
 
         </div>
-    </BentoCard>
+    </div>
   );
 };
 
