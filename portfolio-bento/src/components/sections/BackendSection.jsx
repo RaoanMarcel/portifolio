@@ -1,14 +1,17 @@
 import React from 'react';
 import { Server, Code2, ExternalLink } from 'lucide-react';
-import SectionTitle from '../ui/SectionTitle';
-import BentoCard from '../ui/BentoCard';
 
 const BackendSection = ({ onOpenModal }) => {
   return (
     <section>
-      <SectionTitle icon={Server} title="Arquitetura de Sistemas & Dados" colorClass="text-indigo-600" />
+      <div className="flex items-center gap-3 mb-8">
+         <div className="p-1 bg-indigo-50 rounded-lg text-indigo-600">
+            <Server size={24} />
+         </div>
+         <h2 className="text-1x0.8 font-bold text-slate-700">Arquitetura de Sistemas & Dados</h2>
+      </div>
       
-      <BentoCard className="group relative overflow-hidden border-indigo-50 hover:border-indigo-200 transition-all bg-gradient-to-br from-white to-indigo-50/30">
+      <div className="bg-white rounded-3xl p-6 md:p-8 border border-slate-200 shadow-sm group relative overflow-hidden hover:border-indigo-200 transition-all bg-gradient-to-br from-white to-indigo-50/30">
         <div className="flex flex-col md:flex-row gap-8 items-center">
             
             <div className="flex-1 space-y-4 relative z-10">
@@ -36,7 +39,7 @@ const BackendSection = ({ onOpenModal }) => {
               <div className="pt-6 flex gap-3">
                 <button 
                   onClick={onOpenModal} 
-                  className="flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 transition bg-indigo-50 px-4 py-2 rounded-lg border border-indigo-100"
+                  className="flex items-center gap-2 text-sm font-bold text-indigo-600 hover:text-indigo-800 transition bg-indigo-50 px-4 py-2 rounded-lg border border-indigo-100 cursor-pointer"
                 >
                   <Code2 size={16} /> Ver Arquitetura
                 </button>
@@ -53,7 +56,7 @@ const BackendSection = ({ onOpenModal }) => {
               />
             </div>
         </div>
-      </BentoCard>
+      </div>
     </section>
   );
 };
