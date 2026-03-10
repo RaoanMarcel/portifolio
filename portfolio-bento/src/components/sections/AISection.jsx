@@ -27,7 +27,7 @@ const AISection = () => {
             
             <div className="space-y-3 mb-8">
               <div className="flex items-center gap-3 text-sm text-slate-700">
-                <ShieldCheck size={16} className="text-emerald-500" /> Precisão de 94% no Dataset de Teste
+                <ShieldCheck size={16} className="text-emerald-500" /> Precisão de 89% no Dataset de Teste
               </div>
               <div className="flex items-center gap-3 text-sm text-slate-700">
                 <Cloud size={16} className="text-emerald-500" /> Deploy em construção
@@ -86,7 +86,7 @@ const AISection = () => {
                 <div className="bg-emerald-50 p-2 rounded-lg text-emerald-600"><BarChart3 size={20} /></div>
                 <div>
                   <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Imagens Processadas</p>
-                  <p className="font-bold text-slate-800 text-lg">1,320 +</p>
+                  <p className="font-bold text-slate-800 text-lg">5.800 + </p>
                 </div>
               </div>
               <div className="text-emerald-700 text-xs font-bold bg-emerald-50 px-4 py-2 rounded-full border border-emerald-100">+14% este mês</div>
